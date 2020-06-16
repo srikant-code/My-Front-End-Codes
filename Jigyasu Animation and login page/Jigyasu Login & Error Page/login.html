@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jigyasu | Login</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:700&display=swap" rel="stylesheet">
+    <style>
+        body{
+            font-family: 'Open Sans', sans-serif;
+            background: rgb(217,169,16);
+            background: linear-gradient(-65deg, rgba(217,169,16,1) 0%, rgba(255,216,0,1) 100%); 
+            height:100vh;
+            width:100vw;
+            overflow: hidden;
+            margin: 0;
+        }
+        .containerLogin{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: row wrap;
+            height:100vh;
+            position: relative;
+        }
+        .jigyasuLinkLogin{
+            position: fixed;
+            right: 0px;
+            bottom: 0px;
+            float: right;
+            cursor: pointer;
+            width:150px;
+            padding-top: 100px;
+            padding-left: 70px;
+            padding-right: 30px;
+            padding-bottom: 40px;
+            font-size: 1.1rem;
+            text-align: center;
+            transition-duration: 0.2s;
+        }
+        .jigyasuLinkLogin:hover{
+            color: #082753;
+            transition-duration: 0.2s;
+        }
+        .loginBox{
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            filter: drop-shadow(0px 0px 15px rgb(189, 189, 189));
+            width:300px;
+            height:400px;
+        }
+        .loginButtonBox{
+            cursor: pointer;
+            border:none;
+            background-color: #204e8e;
+            padding: 15px 0px 13px 0px;
+            width:100%;
+            margin-top: 20px;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .loginButtonBox:hover{
+            background-color:#133668;
+        }
+        #name{
+            width: 100%;
+            height:35px;
+            margin:10px 0px;
+            border-radius: 6px;
+        }
+        #password{
+            width: 100%;
+            border-radius: 6px;
+            height:35px;
+            margin:10px 0px;
+        }
+        .loginForm{
+            margin-top: 30px;
+        }
+        .createAccount{
+            float: right;
+            bottom:40px;
+            right: 40px;
+            font-weight: 300;
+            position: absolute;
+        }
+        .forgotPassword{
+            float:left;
+            bottom:40px;
+            font-weight: 300;
+            position: absolute;
+        }
+        .createAccount:hover ,.forgotPassword:hover{
+            color: #204e8e;
+            cursor: pointer;
+        }
+        .toJigyasu{
+            color: #204e8e;
+            font-size: 1rem;
+        }
+        .signInText{
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="containerLogin">
+        <div class="loginBox">
+            <h1 class="signInText">Sign in <span class="toJigyasu">to Jigyasu</span></h1>
+            <form class="loginForm">
+                <label for="fname">Username</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="fname">Password</label><br>
+                <input type="password" id="password" name="password"><br>
+                <button class="loginButtonBox" type="submit">
+                    Login
+                </button>
+            </form>
+            <div class="createAccount">
+                Create Account
+            </div>
+            <div class="forgotPassword">
+                Forgot Password?
+            </div>
+        </div>
+    </div>
+    <div class="jigyasuLinkLogin">
+        jigyasu.co.in
+    </div>
+</body>
+</html>

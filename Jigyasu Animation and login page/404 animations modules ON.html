@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>  
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <title>Animation</title>
+    <style>
+        html {
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: #000;
+        }
+
+        body {
+            height: 1080px;
+            width: 1920px;
+            margin: 0px;
+/*             border: #fff 2px solid; */
+            background-image: url(space_background.svg);
+            background-repeat: no-repeat;
+            overflow: auto;
+            font-family: 'Roboto', sans-serif;
+        }
+        .rock1 {
+            height: 510px;
+            width: 40%;
+            z-index: 1;
+/*             border: #fff 2px solid; */
+            top: -100px;
+            left: -150px;
+            background-image: url(rock2.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            transition-duration: 0.5s;
+        }
+        .rock1:hover{
+            transform: translateX(15px) translateY(-5px);
+        }
+        .rock2:hover{
+            transform: translateX(10px) translateY(-5px) rotate(1deg);
+        }
+        .rock3:hover{
+            transform: translateX(-15px) translateY(-5px);
+        }
+
+        .rock2 {
+            height: 250px;
+            width: 100vw;
+            top: 30px;
+            right: -750px;
+            z-index: 1;
+            background-image: url(rock3.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            transition-duration: 0.5s;
+        }
+
+        .rock3 {
+            height: 35vw;
+            width: 35vw;
+            right: 0px;
+            bottom: -200px;
+            z-index: 2;
+            background-image: url(rock1.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            transition-duration: 0.5s;
+        }
+
+        .planet {
+            bottom: 50px;
+            height: 15vw;
+            position: absolute;
+            width: 15vw;
+            left: -100px;
+            z-index: 0;
+/*             border: #ffffff 2px solid; */
+            background-image: url(planet.svg);
+            background-repeat: no-repeat;
+            /* background-size: 5vw 5vw; */
+            animation-name: planetRotation;
+            animation-duration: 40s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+            transform-origin: 50% 50%;
+        }
+
+        .rocket {
+            top: 27vh;
+            /*@media m thoda neeche le lene se phone m acha dikhega */
+            height: 20vh;
+            left: 13vw;
+            width: 100%;
+            z-index: 3;
+            background-image: url(rocket.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            animation-name: rocketFloat;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+        }
+
+        /* @media m fire ka position change karna hai*/
+        .fire {
+            top: 36vh;
+            height: 7vh;
+            left: 12vw;
+            width: 100%;
+            z-index: 2;
+            background-image: url(fire.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            animation-name: fireFloat;
+            animation-iteration-count: infinite;
+            animation-duration: 5s;
+            transition: 0.5s;
+            visibility: hidden;
+        }
+        .wire {
+            /*             border: #000 2px solid; */
+            top: 39vh;
+            height: 40vh;
+            left: 8%;
+            width: 100%;
+            z-index: 01;
+            background-image: url(wire.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            transition-duration: 0.5s;
+            transform-origin: 35% 50%;
+        }
+
+        .wire:hover {
+            /*             -webkit-transform: translateY(-20px);
+            -moz-transform: translateY(-20px);
+            -ms-transform: translateY(-20px);
+            -o-transform: translateY(-20px); */
+            transform: rotate(5deg);
+            transform: translateY(-20px);
+
+        }
+        .comet1 {
+            left: 85%;
+            height: 100%;
+            width: 3%;
+            background-image: url(comet.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            opacity: 95%;
+            transform: rotate(280deg);
+            animation-name: comet1;
+            animation-duration: 80s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        .comet2 {
+            right: 17%;
+            top: 10%;
+            height: 100%;
+            width: 6%;
+            background-image: url(comet.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            opacity: 100%;
+            z-index: 0;
+            transform: rotate(15deg);
+            animation-name: comet2;
+            animation-duration: 50s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+
+        .astronaut {
+            left: 17%;
+            bottom: 30px;
+            height: 38vh;
+            width: 50%;
+            z-index: 3;
+            /*             border: #000 2px solid; */
+            background-image: url(astronaut.svg);
+            background-repeat: no-repeat;
+            position: absolute;
+            transition: 0.5s;
+        }
+
+        /*animation m last m ek jerk ho raha hai on hover*/
+        .astronaut:hover {
+            -webkit-transform: translateX(20px);
+            -moz-transform: translateX(20px);
+            -ms-transform: translateX(20px);
+            -o-transform: translateX(20px);
+            transform: translateX(20px);
+            transform: rotate(5deg);
+            transform-origin: 50% 10%;
+            /* transform: scale(5%); */
+        }
+        .content{
+            position: absolute;
+            background-color: #888888;
+            top: 1000px;
+            height: 500px;
+            width: 90vw;
+            margin: 5vw;
+            overflow: auto;
+        }
+
+        .evaluationStatus{
+            font-size: 5vw;
+            position: absolute;
+            color: ghostwhite;
+            z-index: 20;
+            top: 22%;
+            margin: 10vw;
+            width: 80vw;
+            text-align: center;
+        }
+        .evaluationDescription{
+            font-size: 1vw;
+            position: absolute;
+            color: ghostwhite;
+            z-index: 20;
+            top: 36%;
+            margin: 10vw;
+            width: 80vw;
+            text-align: center;
+            line-height: 1.6;
+        }
+        .evaluationDescription span{
+            line-height: 1.6;
+            display: block;
+        }
+        .evaluationDescription span.enterSmallScreen{
+            display: inline;
+        }
+        .backToHome{
+            width: 22vw;
+            /* border: #fff 2px solid; */
+            background-color: rgb(230, 171, 8);
+            border-radius: 5px;
+            color: #fff;
+            padding: 10px;
+            font-size: 2vh;
+            margin-left: 39%;
+            margin-right: 39%;
+            top: 50%;
+            line-height: 1.6;
+        }
+        .wrapBackToHome{
+            position: absolute; 
+            z-index: 20;
+            top: 32vw;
+            margin-left: 6.5vw;
+            width: 80vw;
+            text-align: center;
+        }
+        @media only screen and (max-width: 1220px) {
+            .rock1{
+                top: -20px;
+                left: -30px;
+            }
+            .rock3{
+                bottom: -100px;
+            }
+            .evaluationStatus{
+                top: 40%;
+                text-align: end;
+            }
+            .astronaut{
+                height: 30vh;
+            }
+            .wire{
+                transform: rotate(10deg) translateY(25px) translateX(-25px);
+                transition-duration: 0.5s;
+            }
+            .rocket{
+                transform: translateX(18px);
+            }
+            .fire{
+                transform: translateX(10px) translateY(4px);
+            }
+            .evaluationDescription{
+                top: 46.5%;
+                font-size: 1.85vh;
+                text-align: end;
+            }
+            .evaluationDescription span.enterSmallScreen{
+                display: block;
+            }
+            .backToHome{
+                top: 56%;
+            }
+        }
+
+        @keyframes rocketFloat {
+            0% {
+                transform: translateX(-10px) translateY(-10px);
+            }
+
+            50% {transform: translateX(10px) translateY(10px);
+            }
+
+            100% {
+                transform: translateX(-10px) translateY(-10px);
+            }
+        }
+        @keyframes comet2 {
+            0% {
+                top: -10%;
+                right: -30%;
+            }
+
+            100% {
+                top: 130%;
+                right: 130%;
+            }
+        }
+        @keyframes planetRotation {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes fireFloat {
+            0% {
+                transform: translateX(-10px) translateY(-10px);
+            }
+
+            50% {
+                transform: translateX(10px) translateY(10px);
+            }
+            70%{visibility: hidden;}
+            72%{visibility: visible;}
+            74%{visibility: hidden;}
+            100% {
+                transform: translateX(-10px) translateY(-10px);
+            }
+        }
+        @keyframes comet1 {
+            0% {
+                top: -80%;
+                left: 60%;
+            }
+
+            100% {
+                top: 130%;
+                left: 100%;
+            }
+        }
+        .stars {
+            height: 450px;
+            width: 100%;
+            background-image: url(star1.png);
+            background-repeat: no-repeat;
+            position: absolute;
+        } 
+        
+    </style>
+</head>
+
+<body>
+    <div class="backroundImage"></div>
+    <div class="rock1"></div>
+    <div class="rock2"></div>
+    <div class="rock3"></div>
+    <div class="planet"></div>
+    <div class="rocket"></div>
+    <div class="fire"></div>
+    <div class="comet1"></div>
+    <div class="comet2"></div>
+    <div class="stars"></div>
+    <div class="astronaut"></div>
+    <div class="wire"></div>
+<!--     <div class="page-wrap d-flex flex-row align-items-center" id="error" style="z-index: 10;">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <span class="display-1 d-block"> Evaluation is in Progress</span>
+                        <div class="mb-4 lead">The page that you are looking for will be made available only after all the evaluation procees has been completed</div>
+                        <a href="/" class="btn btn-info btn-lg">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    <div>
+        <h1 class="evaluationStatus">Evaluation is in progress</h1>
+        <h4 class="evaluationDescription">The page that you are looking for will be made<span class="enterSmallScreen"> available only after all the evaluation</span><span> procees has been completed</span></h4>
+        <!-- <h4 class="evaluationDescription" style="top: 40%;"></h4> -->
+        <div class="wrapBackToHome">
+            <h4 class="backToHome">Back to Home</h4>
+        </div>
+    </div>
+
+    <div class="content">
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+        <h1>Hello</h1>
+    </div>
+</body>
+</html>

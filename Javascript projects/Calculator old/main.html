@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Calculator</title>
+        <link rel="stylesheet" href="main.css">
+
+        <script>
+// var displayres = function(event) {
+//         console.log("A button was clicked !");
+//         var item= event.target.id;
+//         console.log(item);
+//     }
+        </script>
+	</head>
+	<body>
+		<div class="container">
+		    <div class="output" id="output">
+		        <div class="active_operator">
+                    <h1>+</h1>
+                </div>
+                <div class="result">
+                    <h1>81</h1>
+                </div>
+                <div class="expression">
+                    <h4>27 * 3</h3>
+                </div>
+		    </div>
+		    <div class="input" id="input" onclick="">
+                <div class="operator" id="divide">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="31.5" viewBox="0 0 31.5 31.5">
+                        <path id="Icon_awesome-divide" data-name="Icon awesome-divide" d="M15.75,24.75a4.5,4.5,0,1,0,4.5,4.5A4.5,4.5,0,0,0,15.75,24.75Zm0-13.5a4.5,4.5,0,1,0-4.5-4.5A4.5,4.5,0,0,0,15.75,11.25Zm13.5,3.375h-27A2.25,2.25,0,0,0,0,16.875v2.25a2.25,2.25,0,0,0,2.25,2.25h27a2.25,2.25,0,0,0,2.25-2.25v-2.25A2.25,2.25,0,0,0,29.25,14.625Z" transform="translate(0 -2.25)"/>
+                    </svg>                      
+                </div>
+                <div class="operator" id="multiply">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="33.75" height="36" viewBox="0 0 33.75 36">
+                        <path id="Icon_awesome-star-of-life" data-name="Icon awesome-star-of-life" d="M33.187,23.515,23.629,18l9.558-5.515a1.125,1.125,0,0,0,.412-1.537l-2.251-3.9a1.126,1.126,0,0,0-1.538-.412l-9.558,5.515V1.125A1.125,1.125,0,0,0,19.126,0h-4.5A1.125,1.125,0,0,0,13.5,1.125V12.154L3.94,6.64A1.126,1.126,0,0,0,2.4,7.052l-2.251,3.9a1.125,1.125,0,0,0,.412,1.537L10.121,18,.563,23.515a1.125,1.125,0,0,0-.412,1.537l2.251,3.9a1.127,1.127,0,0,0,1.538.412L13.5,23.846V34.875A1.125,1.125,0,0,0,14.624,36h4.5a1.125,1.125,0,0,0,1.126-1.125V23.846L29.81,29.36a1.126,1.126,0,0,0,1.538-.412l2.251-3.9A1.124,1.124,0,0,0,33.187,23.515Z" transform="translate(0)"/>
+                    </svg>                      
+                </div>
+                <div class="operator" id="minus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="6.75" viewBox="0 0 31.5 6.75">
+                        <path id="Icon_awesome-minus" data-name="Icon awesome-minus" d="M29.25,14.625h-27A2.25,2.25,0,0,0,0,16.875v2.25a2.25,2.25,0,0,0,2.25,2.25h27a2.25,2.25,0,0,0,2.25-2.25v-2.25A2.25,2.25,0,0,0,29.25,14.625Z" transform="translate(0 -14.625)"/>
+                    </svg>                      
+                </div>
+                <div class="operator" id="plus">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="31.5" viewBox="0 0 31.5 31.5">
+                        <path id="Icon_awesome-plus" data-name="Icon awesome-plus" d="M29.25,14.625H19.125V4.5a2.25,2.25,0,0,0-2.25-2.25h-2.25a2.25,2.25,0,0,0-2.25,2.25V14.625H2.25A2.25,2.25,0,0,0,0,16.875v2.25a2.25,2.25,0,0,0,2.25,2.25H12.375V31.5a2.25,2.25,0,0,0,2.25,2.25h2.25a2.25,2.25,0,0,0,2.25-2.25V21.375H29.25a2.25,2.25,0,0,0,2.25-2.25v-2.25A2.25,2.25,0,0,0,29.25,14.625Z" transform="translate(0 -2.25)"/>
+                    </svg>                      
+                </div>
+                
+		        <div class="number" id="9"><h1>9</h1></div>
+		        <div class="number" id="8"><h1>8</h1></div>
+		        <div class="number" id="7"><h1>7</h1></div>
+                <div class="expr" id="clear"><h1>C</h1></div>
+                <div class="number" id="6"><h1>6</h1></div>
+		        <div class="number" id="5"><h1>5</h1></div>
+		        <div class="number" id="4"><h1>4</h1></div>
+                <div class="expr" id=")"><h1>)</h1></div>
+                <div class="number" id="3"><h1>3</h1></div>
+		        <div class="number" id="2"><h1>2</h1></div>
+		        <div class="number" id="1"><h1>1</h1></div>
+                <div class="expr" id="("><h1>(</h1></div>
+                <div class="number" id="."><h1>.</h1></div>
+		        <div class="number" id="0"><h1>0</h1></div>
+                <div class="operator" id="back">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="45" height="27" viewBox="0 0 45 27">
+                      <path id="Icon_awesome-backspace" data-name="Icon awesome-backspace" d="M40.5,4.5H14.432a4.5,4.5,0,0,0-3.183,1.319L.659,16.409a2.249,2.249,0,0,0,0,3.182L11.25,30.182A4.5,4.5,0,0,0,14.432,31.5H40.5A4.5,4.5,0,0,0,45,27V9A4.5,4.5,0,0,0,40.5,4.5ZM34.545,22.364a1.125,1.125,0,0,1,0,1.591l-1.59,1.59a1.125,1.125,0,0,1-1.591,0L27,21.182l-4.364,4.364a1.125,1.125,0,0,1-1.591,0l-1.59-1.59a1.125,1.125,0,0,1,0-1.591L23.818,18l-4.364-4.364a1.125,1.125,0,0,1,0-1.591l1.59-1.59a1.125,1.125,0,0,1,1.591,0L27,14.818l4.364-4.364a1.125,1.125,0,0,1,1.591,0l1.59,1.59a1.125,1.125,0,0,1,0,1.591L30.182,18Z" transform="translate(0 -4.5)"/>
+                    </svg>
+                </div>
+                <div class="operator" id="equal">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="31.5" height="20.25" viewBox="0 0 31.5 20.25">
+                        <path id="Icon_awesome-equals" data-name="Icon awesome-equals" d="M29.25,21.375h-27A2.25,2.25,0,0,0,0,23.625v2.25a2.25,2.25,0,0,0,2.25,2.25h27a2.25,2.25,0,0,0,2.25-2.25v-2.25A2.25,2.25,0,0,0,29.25,21.375Zm0-13.5h-27A2.25,2.25,0,0,0,0,10.125v2.25a2.25,2.25,0,0,0,2.25,2.25h27a2.25,2.25,0,0,0,2.25-2.25v-2.25A2.25,2.25,0,0,0,29.25,7.875Z" transform="translate(0 -7.875)"/>
+                    </svg>
+                </div>
+            
+            
+            </div>
+		</div>
+    </body>
+    <script src="main.js"></script>
+</html>
