@@ -8,65 +8,67 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <div class="calculator">
-        <div class="navbar">
-            <div class="phoneStatus">
-                <svg width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M22.7998 15.2343H37.9622V0.0540161L22.7998 15.2343Z" fill="black" fill-opacity="0.3"/>
-                    <path d="M34.1716 3.84909L22.7998 15.2343H34.1716V3.84909Z" fill="black"/>
-                    <path d="M57.4733 2.58154C57.4733 2.02746 57.0184 1.57205 56.465 1.57205H55.1989V0.0540161H52.1665V1.57205H50.9004C50.347 1.57205 49.8921 2.02746 49.8921 2.58154V6.88516H57.4733V2.58154Z" fill="black" fill-opacity="0.3"/>
-                    <path d="M49.8921 6.88516V14.2248C49.8921 14.7789 50.347 15.2343 50.9004 15.2343H56.4574C57.0184 15.2343 57.4733 14.7789 57.4733 14.2248V6.88516H49.8921Z" fill="black"/>
-                    <path d="M9.3946 15.2267L18.2115 4.2286C17.8704 3.97054 14.474 1.19254 9.38702 1.19254C4.29245 1.19254 0.903654 3.97054 0.5625 4.2286L9.37944 15.2267L9.38702 15.2343L9.3946 15.2267Z" fill="black" fill-opacity="0.3"/>
-                    <path d="M2.96582 7.22674L9.37952 15.2268L9.3871 15.2344L9.39468 15.2268L15.8084 7.22674C15.4824 6.97626 13.0337 4.98764 9.3871 4.98764C5.74054 4.98764 3.29181 6.97626 2.96582 7.22674Z" fill="black"/>
-                </svg>                
+    <div class="Container">
+        <div class="calculator">
+            <div class="navbar">
+                <div class="phoneStatus">
+                    <svg width="58" height="16" viewBox="0 0 58 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22.7998 15.2343H37.9622V0.0540161L22.7998 15.2343Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M34.1716 3.84909L22.7998 15.2343H34.1716V3.84909Z" fill="black"/>
+                        <path d="M57.4733 2.58154C57.4733 2.02746 57.0184 1.57205 56.465 1.57205H55.1989V0.0540161H52.1665V1.57205H50.9004C50.347 1.57205 49.8921 2.02746 49.8921 2.58154V6.88516H57.4733V2.58154Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M49.8921 6.88516V14.2248C49.8921 14.7789 50.347 15.2343 50.9004 15.2343H56.4574C57.0184 15.2343 57.4733 14.7789 57.4733 14.2248V6.88516H49.8921Z" fill="black"/>
+                        <path d="M9.3946 15.2267L18.2115 4.2286C17.8704 3.97054 14.474 1.19254 9.38702 1.19254C4.29245 1.19254 0.903654 3.97054 0.5625 4.2286L9.37944 15.2267L9.38702 15.2343L9.3946 15.2267Z" fill="black" fill-opacity="0.3"/>
+                        <path d="M2.96582 7.22674L9.37952 15.2268L9.3871 15.2344L9.39468 15.2268L15.8084 7.22674C15.4824 6.97626 13.0337 4.98764 9.3871 4.98764C5.74054 4.98764 3.29181 6.97626 2.96582 7.22674Z" fill="black"/>
+                    </svg>                
+                </div>
+                <div id="time">hello</div>
             </div>
-            <div id="time">hello</div>
-        </div>
-        <div class="resultBox">
-            <div class="currentStack" id="fullEquation">0</div>
-            <div class="contentEditable" id="contentEditable" contenteditable="true">0</div>
-            <div class="currentOperator" id="currentOperator"></div>
-        </div>
-        <div id="button-container">
-            <div id="C" class="button-white">C</div>
-            <div id="7" class="button-white buttonGroup">7</div>
-            <div id="8" class="button-white buttonGroup">8</div>
-            <div id="9" class="button-white buttonGroup">9</div>
-            <div id="(" class="button-white">(</div>
-            <div id="4" class="button-white buttonGroup">4</div>
-            <div id="5" class="button-white buttonGroup">5</div>
-            <div id="6" class="button-white buttonGroup">6</div>
-            <div id=")" class="button-white">)</div>
-            <div id="1" class="button-white buttonGroup">1</div>
-            <div id="2" class="button-white buttonGroup">2</div>
-            <div id="3" class="button-white buttonGroup">3</div>
-            <div id="." class="button-white">.</div>
-            <div id="0" class="button-white">0</div>
-            <div id="=" class="button-black">=</div>
-            <div id="@" class="button-black"><-</div>
-            <div id="/" class="button-blue">/</div>
-            <div id="*" class="button-blue">&times;</div>
-            <div id="-" class="button-blue">-</div>
-            <div id="+" class="button-blue">+</div>
-        </div>
-    </div>
-    <div class="linkBar">
-        <a href="https://github.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects/Calculator" class="downloadLinks">Download&nbsp;Project&nbsp;<i class="fa fa-github smallicon"></i></a>
-        <a href="#" class="downloadLinks">Download&nbsp;this&nbsp;Design&nbsp;<img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" class="smallicon" alt="Figma Icon"> - Link Coming Soon</a>
-    </div>
-    <div class="ProfilePhoto">
-        <img src="https://avatars2.githubusercontent.com/u/46858011?s=460&u=6294cc513bfbf76b5e5e6f0bdae4fb2bd2b51c11&v=4" alt="profile pic Srikant Sahoo">
-        <div class="socialHandles">
-            <div>
-                <div>Hi I am <b>Srikant Sahoo</b>. If you like this</div>
-                <div>Connect with me on</div>
+            <div class="resultBox">
+                <div class="currentStack" id="fullEquation">0</div>
+                <div class="contentEditable" id="contentEditable" contenteditable="true">0</div>
+                <div class="currentOperator" id="currentOperator"></div>
             </div>
-            <div class="socialLinks">
-                <a href="http://bit.ly/linkedIn_srikant" class="fa fa-linkedin"></a>
-                <a href="https://bit.ly/dribbble_srikant_es" class="fa fa-dribbble"></a>
-                <!-- <a href="#" class="fa fa-behance"></a> -->
-                <a href="https://bit.ly/instagram_page_srikant" class="fa fa-instagram"></a>
-                <a href="https://bit.ly/twitter_srikant_es" class="fa fa-twitter"></a>
+            <div id="button-container">
+                <div id="C" class="button-white">C</div>
+                <div id="7" class="button-white buttonGroup">7</div>
+                <div id="8" class="button-white buttonGroup">8</div>
+                <div id="9" class="button-white buttonGroup">9</div>
+                <div id="(" class="button-white">(</div>
+                <div id="4" class="button-white buttonGroup">4</div>
+                <div id="5" class="button-white buttonGroup">5</div>
+                <div id="6" class="button-white buttonGroup">6</div>
+                <div id=")" class="button-white">)</div>
+                <div id="1" class="button-white buttonGroup">1</div>
+                <div id="2" class="button-white buttonGroup">2</div>
+                <div id="3" class="button-white buttonGroup">3</div>
+                <div id="." class="button-white">.</div>
+                <div id="0" class="button-white">0</div>
+                <div id="=" class="button-black">=</div>
+                <div id="@" class="button-black"><-</div>
+                <div id="/" class="button-blue">/</div>
+                <div id="*" class="button-blue">&times;</div>
+                <div id="-" class="button-blue">-</div>
+                <div id="+" class="button-blue">+</div>
+            </div>
+        </div>
+        <div class="linkBar">
+            <a href="https://github.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects/Calculator" class="downloadLinks">Download&nbsp;Project&nbsp;<i class="fa fa-github smallicon"></i></a>
+            <a href="#" class="downloadLinks">Download&nbsp;this&nbsp;Design&nbsp;<img src="https://cdn.worldvectorlogo.com/logos/figma-1.svg" class="smallicon" alt="Figma Icon"> - Link Coming Soon</a>
+        </div>
+        <div class="ProfilePhoto">
+            <img src="https://avatars2.githubusercontent.com/u/46858011?s=460&u=6294cc513bfbf76b5e5e6f0bdae4fb2bd2b51c11&v=4" alt="profile pic Srikant Sahoo">
+            <div class="socialHandles">
+                <div>
+                    <div>Hi I am <b>Srikant Sahoo</b>. If you like this</div>
+                    <div>Connect with me on</div>
+                </div>
+                <div class="socialLinks">
+                    <a href="http://bit.ly/linkedIn_srikant" class="fa fa-linkedin"></a>
+                    <a href="https://bit.ly/dribbble_srikant_es" class="fa fa-dribbble"></a>
+                    <!-- <a href="#" class="fa fa-behance"></a> -->
+                    <a href="https://bit.ly/instagram_page_srikant" class="fa fa-instagram"></a>
+                    <a href="https://bit.ly/twitter_srikant_es" class="fa fa-twitter"></a>
+                </div>
             </div>
         </div>
     </div>
