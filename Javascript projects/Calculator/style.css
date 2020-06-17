@@ -11,7 +11,8 @@
 }
 
 body {
-  height: 100vh;
+  height: 98vh;
+  overflow: hidden;
   background: #8E2DE2;
   /* fallback for old browsers */
   /* Chrome 10-25, Safari 5.1-6 */
@@ -21,18 +22,31 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+}
+
+body > * {
+  -webkit-box-sizing: border-box !important;
+          box-sizing: border-box !important;
 }
 
 .calculator {
   background-color: #fff;
   border-radius: 20px;
   padding: 10px;
+  -webkit-transform: scale(0.8);
+          transform: scale(0.8);
+  -webkit-filter: drop-shadow(1px 3px 16px rgba(0, 0, 0, 0.527));
+          filter: drop-shadow(1px 3px 16px rgba(0, 0, 0, 0.527));
 }
 
 .calculator .navbar {
@@ -135,7 +149,6 @@ body {
 }
 
 .calculator #button-container > div:hover {
-  background-color: #ccc;
   -webkit-transition-duration: 0.2s;
           transition-duration: 0.2s;
 }
@@ -147,12 +160,26 @@ body {
   border-radius: 11px;
 }
 
+.calculator #button-container .button-white:hover {
+  background: #EEEEEE;
+  -webkit-box-shadow: -1px -1px 2px rgba(214, 214, 214, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.3), inset 5px 5px 13px rgba(214, 214, 214, 0.9), inset -5px -5px 10px rgba(255, 255, 255, 0.9), inset 5px -5px 10px rgba(214, 214, 214, 0.2), inset -5px 5px 10px rgba(214, 214, 214, 0.2);
+          box-shadow: -1px -1px 2px rgba(214, 214, 214, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.3), inset 5px 5px 13px rgba(214, 214, 214, 0.9), inset -5px -5px 10px rgba(255, 255, 255, 0.9), inset 5px -5px 10px rgba(214, 214, 214, 0.2), inset -5px 5px 10px rgba(214, 214, 214, 0.2);
+  border-radius: 11px;
+}
+
 .calculator #button-container .button-black {
-  background: #000000;
+  background: #222;
   -webkit-box-shadow: 4px 4px 10px rgba(198, 198, 198, 0.9), -4px -4px 8px rgba(255, 255, 255, 0.9), 4px -4px 8px rgba(198, 198, 198, 0.2), -4px 4px 8px rgba(198, 198, 198, 0.2), inset -1px -1px 2px rgba(198, 198, 198, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
           box-shadow: 4px 4px 10px rgba(198, 198, 198, 0.9), -4px -4px 8px rgba(255, 255, 255, 0.9), 4px -4px 8px rgba(198, 198, 198, 0.2), -4px 4px 8px rgba(198, 198, 198, 0.2), inset -1px -1px 2px rgba(198, 198, 198, 0.5), inset 1px 1px 2px rgba(255, 255, 255, 0.3);
   border-radius: 11px;
   color: #fff;
+}
+
+.calculator #button-container .button-black:hover {
+  background: #444444;
+  -webkit-box-shadow: -1px -1px 2px rgba(61, 61, 61, 0.5), 1px 1px 2px rgba(75, 75, 75, 0.3), inset 5px 5px 13px #000000, inset -5px -5px 10px rgba(75, 75, 75, 0.9), inset 5px -5px 10px rgba(61, 61, 61, 0.2), inset -5px 5px 10px rgba(61, 61, 61, 0.2);
+          box-shadow: -1px -1px 2px rgba(61, 61, 61, 0.5), 1px 1px 2px rgba(75, 75, 75, 0.3), inset 5px 5px 13px #000000, inset -5px -5px 10px rgba(75, 75, 75, 0.9), inset 5px -5px 10px rgba(61, 61, 61, 0.2), inset -5px 5px 10px rgba(61, 61, 61, 0.2);
+  border-radius: 11px;
 }
 
 .calculator #button-container .button-blue {
@@ -161,6 +188,20 @@ body {
           box-shadow: -11px 11px 28px rgba(217, 217, 217, 0.9), 11px -11px 22px rgba(255, 255, 255, 0.9), -11px -11px 22px rgba(217, 217, 217, 0.2), 11px 11px 22px rgba(217, 217, 217, 0.2);
   border-radius: 11px;
   color: #fff;
+}
+
+.calculator #button-container .button-blue:hover {
+  background: #27A4FF;
+  -webkit-box-shadow: -1px -1px 2px rgba(35, 148, 230, 0.5), 1px 1px 2px rgba(43, 180, 255, 0.3), inset 5px 5px 13px rgba(35, 148, 230, 0.9), inset -5px -5px 10px rgba(43, 180, 255, 0.9), inset 5px -5px 10px rgba(35, 148, 230, 0.2), inset -5px 5px 10px rgba(35, 148, 230, 0.2);
+          box-shadow: -1px -1px 2px rgba(35, 148, 230, 0.5), 1px 1px 2px rgba(43, 180, 255, 0.3), inset 5px 5px 13px rgba(35, 148, 230, 0.9), inset -5px -5px 10px rgba(43, 180, 255, 0.9), inset 5px -5px 10px rgba(35, 148, 230, 0.2), inset -5px 5px 10px rgba(35, 148, 230, 0.2);
+  border-radius: 11px;
+}
+
+.calculator #button-container .clicked {
+  background: #EEEEEE;
+  -webkit-box-shadow: -1px -1px 2px rgba(214, 214, 214, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.3), inset 5px 5px 13px rgba(214, 214, 214, 0.9), inset -5px -5px 10px rgba(255, 255, 255, 0.9), inset 5px -5px 10px rgba(214, 214, 214, 0.2), inset -5px 5px 10px rgba(214, 214, 214, 0.2);
+          box-shadow: -1px -1px 2px rgba(214, 214, 214, 0.5), 1px 1px 2px rgba(255, 255, 255, 0.3), inset 5px 5px 13px rgba(214, 214, 214, 0.9), inset -5px -5px 10px rgba(255, 255, 255, 0.9), inset 5px -5px 10px rgba(214, 214, 214, 0.2), inset -5px 5px 10px rgba(214, 214, 214, 0.2);
+  border-radius: 11px;
 }
 
 .calculator .resultBox {
@@ -224,5 +265,196 @@ body {
   text-align: center;
   background-color: #eeeeee;
   border-radius: 10px;
+}
+
+.linkBar {
+  width: 100%;
+  margin: 20px 0px 40px 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.linkBar .downloadLinks {
+  text-decoration: none;
+  text-align: center;
+  padding: 7px;
+  background-color: #fff;
+  font-size: 15px;
+  border-radius: 7px;
+  color: #8E2DE2;
+  font-weight: 600;
+  border: 2px solid transparent;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  margin: 5px;
+}
+
+.linkBar .downloadLinks:hover {
+  background-color: rgba(0, 0, 0, 0.123);
+  color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  border: solid white 2px;
+}
+
+.linkBar .downloadLinks .smallicon {
+  height: 14px;
+  padding-left: 5px;
+}
+
+.linkBar .downloadLinks img.smallicon {
+  -webkit-transform: translateY(2px);
+          transform: translateY(2px);
+  height: 14px;
+}
+
+.linkBar .downloadLinks .fa-github {
+  color: black;
+  font-size: 18px;
+  vertical-align: text-top;
+  text-align: center;
+  text-decoration: none;
+  padding-left: 5px;
+  border-radius: 50%;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.linkBar .downloadLinks:hover .fa-github {
+  color: white;
+}
+
+.ProfilePhoto {
+  display: inline-block;
+  position: fixed;
+  top: 30px;
+  left: 30px;
+}
+
+.ProfilePhoto:hover .socialHandles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform: 0.3s;
+          transform: 0.3s;
+  -webkit-transform: translateX(0px);
+          transform: translateX(0px);
+}
+
+.ProfilePhoto:hover img {
+  border: 5px #ffee00 solid;
+  -webkit-transition: 0.17s;
+  transition: 0.17s;
+  -webkit-transform: scale(0.9);
+          transform: scale(0.9);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+}
+
+.ProfilePhoto img {
+  -webkit-transition: 0.17s;
+  transition: 0.17s;
+  border-radius: 50%;
+  width: 65px;
+  height: 65px;
+  cursor: pointer;
+  float: left;
+  border: 5px solid transparent;
+}
+
+.ProfilePhoto .socialHandles {
+  background-color: #fff;
+  border-radius: 12px;
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  margin-left: 90px;
+}
+
+.ProfilePhoto .socialHandles::after {
+  content: " ";
+  position: absolute;
+  top: 18%;
+  right: 100%;
+  /* To the left of the tooltip */
+  margin-top: -5px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+}
+
+.ProfilePhoto .socialHandles div {
+  padding: 10px;
+}
+
+.ProfilePhoto .socialHandles div > div {
+  padding: 10px;
+  width: 200px;
+}
+
+.ProfilePhoto .socialHandles .socialLinks {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+}
+
+.ProfilePhoto .socialHandles .fa {
+  padding: 10px;
+  font-size: 20px;
+  width: 20px;
+  text-align: center;
+  text-decoration: none;
+  margin: 4px 1px;
+  border-radius: 50%;
+  -webkit-transition: 0.17s;
+  transition: 0.17s;
+}
+
+.ProfilePhoto .socialHandles .fa:hover {
+  opacity: 0.7;
+  -webkit-transition: 0.17s;
+  transition: 0.17s;
+}
+
+.ProfilePhoto .socialHandles .fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.ProfilePhoto .socialHandles .fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.ProfilePhoto .socialHandles .fa-dribbble {
+  background: #ea4c89;
+  color: white;
+}
+
+.ProfilePhoto .socialHandles .fa-behance {
+  background: #430297;
+  color: white;
+}
+
+.ProfilePhoto .socialHandles .fa-instagram {
+  background: #f40083;
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */
