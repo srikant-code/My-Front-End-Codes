@@ -7,4 +7,5 @@ export const DOMelements = {
     movieDisplay: document.getElementById("movie-display"),
     movieCards: document.getElementsByClassName("movie-card-wrapper"),
     onboardingDisplay: document.getElementById("onboarding"),
+    gobackToSearch: document.getElementById("goback-to-search"),
 }

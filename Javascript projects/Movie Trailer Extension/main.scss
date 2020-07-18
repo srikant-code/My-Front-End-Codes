@@ -26,13 +26,13 @@
     justify-content: $jc;
     align-items: $ai;
 }
-@mixin paragraph($fs: 2.5rem, $wt: 600){
+@mixin paragraph($fs: 1.55rem, $wt: 600){
     font-size: $fs;
     font-weight: $wt;
     color: white;
     letter-spacing: 1.2px;
 }
-@mixin heading($fs: 8rem, $wt: bold) {
+@mixin heading($fs: 4rem, $wt: bold) {
     font-size: $fs;
     font-weight: $wt;
     color: white;
@@ -55,6 +55,9 @@
 body, html{
     overflow-x: hidden !important;
 }
+// html{
+//     zoom: 75%;
+// }
 iframe{
     visibility: hidden;
     background: transparent;
@@ -63,12 +66,13 @@ iframe{
 }
 #onboarding{
     position: absolute;
-    display: flex;
+    display: none; //flex
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
-    min-width:100vw; min-height:100vh;
+    min-width:100%; min-height:100%;
     overflow: hidden;
+    transform-origin: center;
     
     &:after {
         content:'';
@@ -77,11 +81,11 @@ iframe{
         width:100%; height:100%;
         display:inline-block;
         z-index: -1;
-        background: rgb(236,236,236);
-        background: -moz-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        background: -webkit-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        background: linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
     }
     >img{
         position: absolute; 
@@ -97,18 +101,22 @@ iframe{
         z-index: -100;
     }
     form{
-        
+        margin:40px;
+        zoom: 60%;
         #searchKeyword{
             @include heading(12rem, bold);
             outline: none;
             background: transparent;
             border: none;
             border-bottom: solid 3.5px red;
-            max-width:90vw;
-            width:60vw;
+            max-width:115vw;
+            width:115vw;
             text-align: center;
             input[type="text"]{
+                width:130vw;
                 background: transparent;
+                word-wrap: break-word;
+                word-break: break-all;
                 border: none;
                 text-transform: capitalize;
                 input:-webkit-autofill,
@@ -122,7 +130,7 @@ iframe{
     }
 
     .search-results{
-        width: 100vw;
+        width: 80vw;
         overflow: scroll;
         // opacity: 0;
         transition: visibility 0s, opacity 0.5s;
@@ -133,10 +141,12 @@ iframe{
         flex-flow: row wrap;
         justify-content: center;
         align-items: flex-start;
+        zoom: 60%;
+
         &::-webkit-scrollbar {
             display: none;
         }
-        img{
+        >img{ 
             position: absolute; 
             margin: auto; 
             min-width: 100%;
@@ -149,7 +159,7 @@ iframe{
         .movie-card-wrapper{
             position: relative;
             margin: 25px;
-            margin-bottom: 220px;
+            margin-bottom: 150px;
             @include transition();
             &:hover{
                 transform: scale(1.035);
@@ -159,25 +169,90 @@ iframe{
                 width:300px;
                 border-radius: 30px;
                 cursor: pointer;
+                display: flex;
+                flex-flow: column;
+                justify-content: flex-end;
+                align-items: flex-end;
                 img{
                     border-radius: 30px;
                     width:100%;
                     height: auto;
+                    position: absolute;
+                    left:0; top:0;
+                    width:inherit; height:inherit;
+                }
+                &:hover :after{
+                    content:'';
+                    position:absolute;
+                    left:0; top:0;
+                    width:inherit; height:inherit;
+                    display:inline-block;
+                    border-radius: 30px;
+                    z-index: -9;
+                    background: rgb(0,0,0);
+                    background: -moz-linear-gradient(0deg, rgba(0,0,0,0.8700761554621849) 0%, rgba(0,0,0,0.6151741946778712) 51%, rgba(0,0,0,0.8840817577030813) 100%);
+                    background: -webkit-linear-gradient(0deg, rgba(0,0,0,0.8700761554621849) 0%, rgba(0,0,0,0.6151741946778712) 51%, rgba(0,0,0,0.8840817577030813) 100%);
+                    background: linear-gradient(0deg, rgba(0,0,0,0.8700761554621849) 0%, rgba(0,0,0,0.6151741946778712) 51%, rgba(0,0,0,0.8840817577030813) 100%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
                 }
                 .movie-card-details{
                     transition: visibility 0s, opacity 0.5s;
+                    height: 440px;
+                    width: inherit;
                     visibility: hidden;
                     opacity: 0;
+                    z-index: 2;
+                    padding-left: 10px;
                     .movie-name{
                         padding: 20px;
                         font-size: 4rem;
                     }
-                    .movie-score{
+                    .movie-rating{
                         padding: 20px;
+                        padding-top: 0px;
+                        span{
+                            border-bottom: solid 3px red;
+                            padding: 5px 7px;
+                            border-radius: 5px;
+                            vertical-align: middle;
+                            background: rgb(0, 0, 0);
+                        }
+                    }
+                    .movie-language{
+                        padding: 20px;
+                        span{
+                            text-transform: capitalize;
+                            border-bottom: solid 3px red;
+                            padding: 5px 7px;
+                            border-radius: 5px;
+                            vertical-align: middle;
+                            background: rgb(0, 0, 0);
+                        }
                     }
                     .movie-year{
                         padding: 20px;
                         padding-top: 0;
+                    }
+                }
+                .movie-score{
+                    padding: 20px;
+                    position: absolute;
+                    display: flex;
+                    justify-content: center;
+                    flex-flow: column wrap;
+                    align-items: center;
+                    border-radius: 30px;
+                    background: rgb(255,255,255);
+                    background: -moz-linear-gradient(142deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 70%);
+                    background: -webkit-linear-gradient(142deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 70%);
+                    background: linear-gradient(142deg, rgba(255,255,255,0) 0%, rgba(0,0,0,1) 70%);
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+                    span{
+                        border-radius: 50%;
+                        border: 5px solid rgb(83, 83, 83);
+                        background-color: #00bd00;
+                        @include dim(80px, 80px);
+                        @include flex(center, center, center);
                     }
                 }
                 &:hover .movie-card-details{
@@ -193,8 +268,8 @@ iframe{
 
 .home-container{
     @include dim(100vw, 100vh);
-    display: none;
-    // display: flex;
+    // display: none;
+    display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     overflow: hidden;
@@ -298,24 +373,30 @@ iframe{
         }
     }
     .current-movie-info{
-        max-width: 100vw;
+        zoom:60%;
+        // max-width: 100vw;
+        width:65%;
+        height: 160vh;
+        overflow: scroll;
         justify-content: space-between;
-        @include flex(column, center, center);
+        @include flex(row, center, center);
         @media only screen and (min-width:1249px){
-            max-width: 65vw;
+            // max-width: 65vw;
+            float: right;
         }
         @media only screen and (min-aspect-ratio: 9/9){
-            max-width: 65vw;
+            // max-width: 65vw;
         }
         @media only screen and (max-aspect-ratio: 16/9){
-            max-width: 100vw;
+            // max-width: 100vw;
         }
         @media only screen and (min-aspect-ratio: 16/9){
-            max-width: 65vw;
+            // max-width: 65vw;
         }
         .goback-wrapper{
             width: 80%;
             margin-top: 80px;
+            cursor: pointer;
             @include flex();
             .goback-to-search{
                 color: white;
@@ -338,12 +419,39 @@ iframe{
                 }
             }
         }
+        .search-forms{
+            form{
+                margin:80px;
+                zoom: 60%;
+                input{
+                    @include heading(12rem, bold);
+                    outline: none;
+                    background: transparent;
+                    border: none;
+                    border-bottom: solid 3.5px red;
+                    max-width:115vw;
+                    width:115vw;
+                    text-align: center;
+                    input[type="text"]{
+                        width:130vw;
+                        background: transparent;
+                        word-wrap: break-word;
+                        word-break: break-all;
+                        border: none;
+                        text-transform: capitalize;
+                        input:-webkit-autofill,
+                        input:-webkit-autofill:hover, 
+                        input:-webkit-autofill:focus, 
+                        input:-webkit-autofill:active  {
+                        -webkit-box-shadow: 0 0 0 30px white inset !important;
+                        }
+                    }
+                }
+            }
+        }
         .search-bar{
             @include heading();
             margin: 60px;
-            padding-top: 400px;
-            padding-bottom: 150px;
-            padding-left: 60px;
         }
         .scroll-to-explore{
             align-self: flex-end;
@@ -355,117 +463,6 @@ iframe{
             @include paragraph();
             float: right;
             margin: 60px;
-        }
-        .bottom-bar{
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            @include flex();
-            @include dim(100vw, fit-content);
-            flex-flow: column wrap;
-            align-items: flex-end;
-            margin-left: 60px;
-            margin-right: 360px;
-            justify-content: flex-end;
-            z-index: 1;
-            
-            @media only screen and (min-width:1249px){
-                justify-content: space-between;
-                flex-flow: row wrap;
-            }
-            @media only screen and (min-aspect-ratio: 16/9){
-                max-width: 65vw;
-                // float: right;
-                right: 0;
-                bottom:0;
-                left:35%;
-                .bottom-bar-left{
-                    padding-left: 100px;
-                }
-            }
-            @media only screen and (max-aspect-ratio: 16/9){
-                max-width: 100vw;
-            }
-            @media only screen and (min-aspect-ratio: 9/9){
-                max-width: 65vw;
-            }
-
-            background: rgb(236,236,236);
-            background: -moz-linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
-            background: -webkit-linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
-            background: linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
-            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
-            
-            .bottom-bar-left{
-                margin: 30px;
-                order:2;
-                @include flex();
-                .see-on-imdb{
-                    @include paragraph();
-                    @include outline();
-                    @include padding(14px, 26px, 11px, 12px);
-                    @include dim(230px, 60px);
-                    @include margin(20px, 30px, 20px, 0px);
-                    @include transition();
-                    display: inline-block;
-                    cursor: pointer;
-                    svg{
-                        float: right;
-                        transform: scale(1.7) translateX(10px) translateY(-1px);
-                        &:hover{
-                            
-                        }
-                    }
-                    &:hover{
-                        background-color: black;
-                        transform: scale(1.035);
-                        @include transition();
-                    }
-                }
-                .see-on-netflix{
-                    cursor: pointer;
-                    @include paragraph();
-                    @include outline();
-                    @include padding(14px, -10px, 14px, 12px);
-                    @include dim(235px, 60px);
-                    @include margin(20px, 40px, 20px, 0px);
-                    @include transition();
-                    svg{
-                        transform: scale(1.7) translateX(13px);
-                    }
-                    &.see-on-netflix svg:hover{
-                        fill: white !important;
-                    }
-                    &:hover{
-                        background-color: black;
-                        transform: scale(1.035);
-                        @include transition();
-                    }
-                }
-            }
-            .bottom-bar-right{
-                @include flex(right, right,flex-end);
-                flex-flow: column wrap;
-                margin: 50px;
-                @media only screen and (min-width:1249px){
-                    margin-right: 160px;
-                    order: 2;
-                }
-                .current-time{
-                    @include heading(8rem, normal);
-                    margin-bottom: 10px;
-                    letter-spacing: normal;
-                }
-                .expected-watching-time{
-                    @include paragraph();
-                    text-align-last: right;
-                    line-height: 4rem;
-                    span{
-                        display: block;
-                        color: rgb(245, 228, 0);
-                    }
-                }
-            }
         }
         .movie-details{
             @include paragraph();
@@ -617,6 +614,120 @@ iframe{
                                 @include transition();
                             }
                         }
+                    }
+                }
+            }
+        }
+    }
+    .bottom-bar-wrapper{
+        position: absolute;
+        bottom:0;
+        left:0;
+        width: 100vw;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        .bottom-bar{
+            @include flex();
+            @include dim(100vw, fit-content);
+            flex-flow: column wrap;
+            align-items: flex-end;
+            justify-content: flex-end;
+            z-index: 1;
+            
+            @media only screen and (min-width:1249px){
+                justify-content: space-between;
+                flex-flow: row wrap;
+            }
+            @media only screen and (min-aspect-ratio: 16/9){
+                // float: right;
+                right: 0;
+                bottom:0;
+                left:35%;
+                .bottom-bar-left{
+                    padding-left: 100px;
+                }
+            }
+            @media only screen and (max-aspect-ratio: 16/9){
+                max-width: 100vw;
+            }
+            @media only screen and (min-aspect-ratio: 9/9){
+             //   
+            }
+
+            background: rgb(236,236,236);
+            background: -moz-linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
+            background: -webkit-linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
+            background: linear-gradient(180deg, rgba(236,236,236,0) 0%, rgba(0,0,0,1) 61%);
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
+            
+            .bottom-bar-left{
+                margin: 30px;
+                order:2;
+                @include flex();
+                .see-on-imdb{
+                    @include paragraph();
+                    @include outline();
+                    @include padding(14px, 26px, 11px, 12px);
+                    @include dim(200px, 60px);
+                    @include margin(20px, 30px, 20px, 0px);
+                    @include transition();
+                    display: inline-block;
+                    cursor: pointer;
+                    svg{
+                        float: right;
+                        transform: scale(1.7) translateX(10px) translateY(-1px);
+                        &:hover{
+                            
+                        }
+                    }
+                    &:hover{
+                        background-color: black;
+                        transform: scale(1.035);
+                        @include transition();
+                    }
+                }
+                .see-on-netflix{
+                    cursor: pointer;
+                    @include paragraph();
+                    @include outline();
+                    @include padding(14px, -10px, 14px, 12px);
+                    @include dim(220px, 60px);
+                    @include margin(20px, 40px, 20px, 0px);
+                    @include transition();
+                    svg{
+                        transform: scale(1.7) translateX(13px);
+                    }
+                    &.see-on-netflix svg:hover{
+                        fill: white !important;
+                    }
+                    &:hover{
+                        background-color: black;
+                        transform: scale(1.035);
+                        @include transition();
+                    }
+                }
+            }
+            .bottom-bar-right{
+                @include flex(right, right,flex-end);
+                flex-flow: column wrap;
+                margin: 50px;
+                @media only screen and (min-width:1249px){
+                    margin-right: 160px;
+                    order: 2;
+                }
+                .current-time{
+                    @include heading(4rem, normal);
+                    margin-bottom: 10px;
+                    letter-spacing: normal;
+                }
+                .expected-watching-time{
+                    @include paragraph();
+                    text-align-last: right;
+                    line-height: 3rem;
+                    span{
+                        display: block;
+                        color: rgb(245, 228, 0);
                     }
                 }
             }

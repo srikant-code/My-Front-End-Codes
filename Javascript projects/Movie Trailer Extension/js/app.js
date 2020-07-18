@@ -10,9 +10,9 @@ const moviesAddEventListeners = () =>{
     moviecards.forEach(element => {
         element.addEventListener("click", async ()=>{
             const moviedetails = await getMovie(event.target.id)
-            rendermovie(moviedetails)
             DOMelements.onboardingDisplay.style.display = "none"
             DOMelements.movieDisplay.style.display= "flex"
+            rendermovie(moviedetails)
         })
     });
 }
@@ -27,24 +27,16 @@ DOMelements.searchForm.onsubmit = async function searchresults(){
     // clearInput()
 }
 
-DOMelements.searchInput.onkeydown = function searchbarLength(){
-    if(counter==0){
-        counter++
+DOMelements.searchInput.onkeyup = function searchbarLength(){
         this.style.width = ((this.value.length + 1) * 100) + 'px';
-    }
-    else{
-        if(this.value.length<1){
-            counter=0;
-            this.style.width= '60vw'
-            return
-        }
-        counter++
-        this.style.width = ((this.value.length + 1) * 100) + 'px';
-    }
-    console.log(`${this.value.length} and ${counter}`)
+        if(this.value.length == 0)
+        this.style.width = ((46 + 1) * 100) + 'px';
+    // console.log(`${this.value.length} and ${counter}`)
 }
 
-
+DOMelements.gobackToSearch.addEventListener("click", () => {
+    
+})
 
 //UTILITIES
 
