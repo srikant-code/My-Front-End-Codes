@@ -15,140 +15,20 @@
         <img src="${data.id}" id="img" alt="${data.results[0].name}">
         <p>${data.results[0].name}</p>
     </div> -->
-    <div class="onboarding">
-        <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
-        <form id="searchform" method="get" target="dummyframe">
+    <iframe width="0" height="0" border="0" name="dummyframe" id="dummyframe"></iframe>
+    <div id="onboarding">
+        <form id="searchform" method="get" target="dummyframe" autocomplete="off">
             <!-- onsubmit="getSearchResults()" -->
             <input autofocus type="text" id="searchKeyword" name="search" placeholder="Search for your favorite movie to get started.">
             <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
         </form>
-        <img src="/Movie Trailer Extension/img/onboarding.jpg" alt="">
-
-
+        
+        
         <div class="search-results" id="search-results">
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
-            <div class="movie-card-wrapper">
-                <div class="movie-card">
-                    <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
-                    <div class="movie-card-details">
-                        <div class="movie-name">The Old Gaurd</div>
-                        <div class="movie-year">2020</div>
-                        <div class="movie-score">73%</div>
-                    </div>
-                </div>
-            </div>
         </div>
+        <img src="/Movie Trailer Extension/img/onboarding.jpg" alt="">
     </div>
-    <div class="home-container">
+    <div class="home-container" id="movie-display">
         <div class="home-img-wrapper">
             <img src="/Movie Trailer Extension/img/image 3.png" alt="">
         </div>
@@ -157,6 +37,21 @@
             <img src="/Movie Trailer Extension/img/fixed side cover.png" alt="">
         </div>
         <div class="current-movie-info">
+            <div class="goback-wrapper">
+                <div class="goback-to-search">
+                    <svg width="42" height="41" viewBox="0 0 42 41" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g clip-path="url(#clip0)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M41.4478 20.5C41.4478 25.9369 39.2879 31.1512 35.4434 34.9957C31.5989 38.8402 26.3847 41 20.9478 41C15.5108 41 10.2966 38.8402 6.45207 34.9957C2.60757 31.1512 0.447754 25.9369 0.447754 20.5C0.447754 15.0631 2.60757 9.84881 6.45207 6.00431C10.2966 2.15982 15.5108 0 20.9478 0C26.3847 0 31.5989 2.15982 35.4434 6.00431C39.2879 9.84881 41.4478 15.0631 41.4478 20.5V20.5ZM21.8549 27.2804C22.0955 27.521 22.2306 27.8473 22.2306 28.1875C22.2306 28.5277 22.0955 28.854 21.8549 29.0946C21.6143 29.3352 21.288 29.4704 20.9478 29.4704C20.6075 29.4704 20.2812 29.3352 20.0406 29.0946L12.3531 21.4071C12.2338 21.2881 12.1391 21.1467 12.0746 20.9911C12.01 20.8354 11.9767 20.6685 11.9767 20.5C11.9767 20.3315 12.01 20.1646 12.0746 20.0089C12.1391 19.8533 12.2338 19.7119 12.3531 19.5929L20.0406 11.9054C20.1598 11.7862 20.3012 11.6918 20.4568 11.6273C20.6125 11.5628 20.7793 11.5296 20.9478 11.5296C21.1162 11.5296 21.283 11.5628 21.4387 11.6273C21.5943 11.6918 21.7358 11.7862 21.8549 11.9054C21.974 12.0245 22.0685 12.1659 22.133 12.3216C22.1974 12.4772 22.2306 12.644 22.2306 12.8125C22.2306 12.981 22.1974 13.1478 22.133 13.3034C22.0685 13.4591 21.974 13.6005 21.8549 13.7196L16.3532 19.2188H28.6353C28.9751 19.2188 29.301 19.3537 29.5412 19.594C29.7815 19.8343 29.9165 20.1602 29.9165 20.5C29.9165 20.8398 29.7815 21.1657 29.5412 21.406C29.301 21.6463 28.9751 21.7812 28.6353 21.7812H16.3532L21.8549 27.2804Z" fill="white"/>
+                        </g>
+                        <defs>
+                        <clipPath id="clip0">
+                        <rect width="41" height="41" fill="white" transform="translate(0.447754)"/>
+                        </clipPath>
+                        </defs>
+                    </svg>
+                    <p>Back to search results “Relic”</p>
+                </div>
+            </div>
             <!-- Searchbar -->
             <div class="search-bar">Start typing to search anything...</div>
 

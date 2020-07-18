@@ -1,16 +1,31 @@
 import {renderTimeDetails} from './render.js';
 import {DOMelements} from './getDOMelements.js'
+import { moviesRender, rendermovie } from './getMovies.js';
 
 const apikey = "d945889bb9934bf3d4195cc152d6f401"
 
 //EVENT LISTENERS
-DOMelements.searchForm.onsubmit = function searchresults(){
+const moviesAddEventListeners = () =>{
+    const moviecards = Array.from(DOMelements.movieCards)
+    moviecards.forEach(element => {
+        element.addEventListener("click", async ()=>{
+            const moviedetails = await getMovie(event.target.id)
+            rendermovie(moviedetails)
+            DOMelements.onboardingDisplay.style.display = "none"
+            DOMelements.movieDisplay.style.display= "flex"
+        })
+    });
+}
+
+DOMelements.searchForm.onsubmit = async function searchresults(){
     //get serach results
-    getSearchResults()
+    const data = await getSearchResults()
     //render search results with pagination
+    // renderSearchCleaning()
+    moviesRender(data)
+    moviesAddEventListeners()
     // clearInput()
-    renderSearchResults()
-} 
+}
 
 DOMelements.searchInput.onkeydown = function searchbarLength(){
     if(counter==0){
@@ -34,10 +49,6 @@ DOMelements.searchInput.onkeydown = function searchbarLength(){
 //UTILITIES
 
 let counter=0;
-// const searchbarLength = () => {
-    
-// }
-
 const clearInput = () => {
     // DOMelements.searchInput.value=""
     // searchbarLength()
@@ -49,43 +60,32 @@ const clearInput = () => {
 
 async function getSearchResults(){
     const keyword = DOMelements.searchInput.value;
-    // let resp = await fetch(`https://api.themoviedb.org/3/search/${keyword}?api_key=${apikey}&page=1`)
-    // http://api.themoviedb.org/3/search/movie?query=relic&api_key=d945889bb9934bf3d4195cc152d6f401
-    // https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
-
     let resp = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apikey}&query=${keyword}`)
     let datas = await resp.json()
-    console.log(datas)
+    console.log("inside search result")
+    return datas
 }
 
-const renderSearchResults = () => {
+const renderSearchCleaning = () => {
     //do the animation and cleaning stuffs
     DOMelements.searchInput.style.transform = "translateY(-500px)"
-    DOMelements.searchresults.style.display = "block"
+    DOMelements.searchresults.style.visibility = "visible";
     //put the json value inside cards
+
     // render the results
 }
 
-function rendermovies(data){
-    // let movieCard = `<div class="movie-card">
-    //                     <img src="https://image.tmdb.org/t/p/w533_and_h300_bestv2/${data.backdrop_path}" id="img" alt="${data.original_title}">
-    //                     <p>${data.overview}</p>
-    //                 </div>
-    //                 `
-    // const renderDiv = document.getElementById("render")
-    // renderDiv.innerHTML = movieCard;
-
-}
-
-async function getMovies(){
-    let res = await fetch(`https://api.themoviedb.org/3/movie/550?api_key=${apikey}`)
+async function getMovie(id){
+    let res = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=${apikey}`)
     // let res = await fetch(`https://api.themoviedb.org/3/movie/550/videos?api_key=${apikey}&language=en-US`)
     let data = await res.json()
-    rendermovies(data)
+    return data
     // console.log(data)
 }
 
-
+// let resp = await fetch(`https://api.themoviedb.org/3/search/${keyword}?api_key=${apikey}&page=1`)
+    // http://api.themoviedb.org/3/search/movie?query=relic&api_key=d945889bb9934bf3d4195cc152d6f401
+    // https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
 
 // take in the search term and show results
 // render moviw details

@@ -13,11 +13,22 @@ body, html {
   overflow-x: hidden !important;
 }
 
-.onboarding {
+iframe {
+  visibility: hidden;
+  background: transparent;
+  position: absolute;
+  top: 10000;
+}
+
+#onboarding {
   position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -29,7 +40,7 @@ body, html {
   overflow: hidden;
 }
 
-.onboarding:after {
+#onboarding:after {
   content: '';
   position: absolute;
   left: 0;
@@ -44,7 +55,7 @@ body, html {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
 }
 
-.onboarding img {
+#onboarding > img {
   position: absolute;
   margin: auto;
   min-width: 100%;
@@ -56,10 +67,10 @@ body, html {
           transform-origin: center;
   -webkit-filter: brightness(0.35) opacity(1) blur(0.5px);
           filter: brightness(0.35) opacity(1) blur(0.5px);
-  z-index: -1;
+  z-index: -100;
 }
 
-.onboarding form #searchKeyword {
+#onboarding form #searchKeyword {
   font-size: 12rem;
   font-weight: bold;
   color: white;
@@ -73,22 +84,22 @@ body, html {
   text-align: center;
 }
 
-.onboarding form #searchKeyword input[type="text"] {
+#onboarding form #searchKeyword input[type="text"] {
   background: transparent;
   border: none;
   text-transform: capitalize;
 }
 
-.onboarding form #searchKeyword input[type="text"] input:-webkit-autofill,
-.onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:hover,
-.onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:focus,
-.onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:active {
+#onboarding form #searchKeyword input[type="text"] input:-webkit-autofill,
+#onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:hover,
+#onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:focus,
+#onboarding form #searchKeyword input[type="text"] input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px white inset !important;
 }
 
-.onboarding .search-results {
+#onboarding .search-results {
   width: 100vw;
-  overflow: visible;
+  overflow: scroll;
   -webkit-transition: visibility 0s, opacity 0.5s;
   transition: visibility 0s, opacity 0.5s;
   font-size: 2.5rem;
@@ -96,8 +107,7 @@ body, html {
   color: white;
   letter-spacing: 1.2px;
   z-index: 1;
-  position: absolute;
-  visibility: hidden;
+  visibility: visible;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,60 +118,76 @@ body, html {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
-.onboarding .search-results .movie-card-wrapper {
+#onboarding .search-results::-webkit-scrollbar {
+  display: none;
+}
+
+#onboarding .search-results img {
+  position: absolute;
+  margin: auto;
+  min-width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+
+#onboarding .search-results .movie-card-wrapper {
   position: relative;
   margin: 25px;
-  margin-bottom: 260px;
+  margin-bottom: 220px;
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.onboarding .search-results .movie-card-wrapper:hover {
+#onboarding .search-results .movie-card-wrapper:hover {
   -webkit-transform: scale(1.035);
           transform: scale(1.035);
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card {
+#onboarding .search-results .movie-card-wrapper .movie-card {
   width: 300px;
   border-radius: 30px;
   cursor: pointer;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card img {
+#onboarding .search-results .movie-card-wrapper .movie-card img {
   border-radius: 30px;
   width: 100%;
   height: auto;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details {
+#onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details {
   -webkit-transition: visibility 0s, opacity 0.5s;
   transition: visibility 0s, opacity 0.5s;
   visibility: hidden;
   opacity: 0;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-name {
+#onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-name {
   padding: 20px;
   font-size: 4rem;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-score {
+#onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-score {
   padding: 20px;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-year {
+#onboarding .search-results .movie-card-wrapper .movie-card .movie-card-details .movie-year {
   padding: 20px;
   padding-top: 0;
 }
 
-.onboarding .search-results .movie-card-wrapper .movie-card:hover .movie-card-details {
+#onboarding .search-results .movie-card-wrapper .movie-card:hover .movie-card-details {
   visibility: visible;
   -webkit-transform: scale(1.045);
           transform: scale(1.045);
@@ -352,6 +378,55 @@ body, html {
   .home-container .current-movie-info {
     max-width: 65vw;
   }
+}
+
+.home-container .current-movie-info .goback-wrapper {
+  width: 80%;
+  margin-top: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: left wrap;
+          flex-flow: left wrap;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+.home-container .current-movie-info .goback-wrapper .goback-to-search {
+  color: white;
+  border: 2px red solid;
+  border-radius: 500px;
+  padding: 20px;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 1.2px;
+}
+
+.home-container .current-movie-info .goback-wrapper .goback-to-search svg {
+  -webkit-transform: scale(1.6);
+          transform: scale(1.6);
+}
+
+.home-container .current-movie-info .goback-wrapper .goback-to-search p {
+  padding-left: 20px;
+  font-style: italic;
+  display: inline;
+}
+
+.home-container .current-movie-info .goback-wrapper .goback-to-search:hover {
+  -webkit-transform: scale(1.035);
+          transform: scale(1.035);
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
 }
 
 .home-container .current-movie-info .search-bar {
