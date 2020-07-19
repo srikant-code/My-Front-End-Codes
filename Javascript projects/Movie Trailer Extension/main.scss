@@ -26,13 +26,13 @@
     justify-content: $jc;
     align-items: $ai;
 }
-@mixin paragraph($fs: 1.55rem, $wt: 600){
+@mixin paragraph($fs: 1.65rem, $wt: 600){
     font-size: $fs;
     font-weight: $wt;
     color: white;
     letter-spacing: 1.2px;
 }
-@mixin heading($fs: 4rem, $wt: bold) {
+@mixin heading($fs: 5rem, $wt: bold) {
     font-size: $fs;
     font-weight: $wt;
     color: white;
@@ -448,26 +448,136 @@ iframe{
                     }
                 }
             }
-        }
-        .search-bar{
-            @include heading();
-            margin: 60px;
-        }
-        .scroll-to-explore{
-            align-self: flex-end;
-            padding-right: 60px;
-            @include flex(column, center, center);
-            .scroll-to-explore-text{
-                margin-top: 20px;
+            .search-bar{
+                @include heading(7rem, bold);
+                margin: 60px;
             }
-            @include paragraph();
-            float: right;
-            margin: 60px;
+        }
+        .search-and-scroll-div{
+            @include flex(column, center, center);
+            margin-bottom: 400px;
+            .search-chooser{
+                @include flex(row);
+                position: relative;
+                cursor: pointer;
+                >svg{
+                    transform: scale(1.8) translateX(120px);
+                    width: 75%;
+                    position: absolute;
+                    @include transition();
+                }
+                .search-chooser-background{
+                    @include transition();
+                    width: 100%;
+                    border-radius: 500px;
+                    background: black;
+                    position: absolute;
+                    height:100px;
+                    transform: translateY(-24px);
+                    // &:after{
+                    //     content: '';
+                    //     width:145px;
+                    //     background: red;
+                    //     height: 100px;
+                    //     position: absolute;
+                    //     border-radius: 400px;
+                    // }
+                }
+                .google-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:125px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .movies-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:125px;
+                    left:120px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .tv-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:125px;
+                    left: 250px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .collection-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:125px;
+                    left: 400px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .people-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:125px;
+                    left: 540px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .all-searchafter:after{
+                    @include transition();
+                    content: '';
+                    width:660px;
+                    left: 120px;
+                    background: red;
+                    height: 100px;
+                    position: absolute;
+                    border-radius: 400px;
+                }
+                .search-option{
+                    @include transition();
+                    @include flex(column, space-between, center);
+                    @include paragraph();
+                    min-width: 100px;
+                    height: 140px;
+                    margin:10px;
+                    z-index: 10;
+                    margin-top: 0;
+                    svg{
+                        @include transition();
+                        transform: scale(1.7);
+                        margin: 15px;
+                    }
+                    >div{
+                        padding: 15px;
+                        padding-top: 20px;
+                    }
+                }
+            }
+            .scroll-to-explore{
+                // align-self: flex-end;
+                // padding-right: 60px;
+                @include flex(column, center, center);
+                .scroll-to-explore-text{
+                    margin-top: 20px;
+                }
+                @include paragraph();
+                float: right;
+                margin: 60px;
+            }
         }
         .movie-details{
             @include paragraph();
             width:80%;
-            height: 90vh;
+            height: 130vh;
             .movie-heading{
                 @include flex(row, space-between, flex-end);
                 .movie-left-heading{
@@ -634,6 +744,7 @@ iframe{
             align-items: flex-end;
             justify-content: flex-end;
             z-index: 1;
+            zoom:67%;
             
             @media only screen and (min-width:1249px){
                 justify-content: space-between;
@@ -669,14 +780,14 @@ iframe{
                     @include paragraph();
                     @include outline();
                     @include padding(14px, 26px, 11px, 12px);
-                    @include dim(200px, 60px);
+                    @include dim(210px, 60px);
                     @include margin(20px, 30px, 20px, 0px);
                     @include transition();
                     display: inline-block;
                     cursor: pointer;
                     svg{
                         float: right;
-                        transform: scale(1.7) translateX(10px) translateY(-1px);
+                        transform: scale(1.7) translateX(10px) translateY(-2px);
                         &:hover{
                             
                         }
@@ -711,13 +822,13 @@ iframe{
             .bottom-bar-right{
                 @include flex(right, right,flex-end);
                 flex-flow: column wrap;
-                margin: 50px;
+                margin: 30px;
                 @media only screen and (min-width:1249px){
-                    margin-right: 160px;
+                    margin-right: 100px;
                     order: 2;
                 }
                 .current-time{
-                    @include heading(4rem, normal);
+                    @include heading(5rem, normal);
                     margin-bottom: 10px;
                     letter-spacing: normal;
                 }

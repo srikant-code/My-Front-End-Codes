@@ -38,6 +38,17 @@ DOMelements.gobackToSearch.addEventListener("click", () => {
     
 })
 
+let lastSearchClicked = `${DOMelements.searchChooser[0]}-search`
+for(let j=0; j<DOMelements.searchChooser.length; j++){
+    let x= `${DOMelements.searchChooser[j]}-search`
+    document.getElementById(x).addEventListener("click", () =>{
+        // DOMelements.searchChooserID.removeclas
+        document.getElementById("scba").classList.remove(`${lastSearchClicked}after`)
+        document.getElementById("scba").classList.add(`${x}after`)
+        lastSearchClicked = x
+    })
+}
+
 //UTILITIES
 
 let counter=0;
