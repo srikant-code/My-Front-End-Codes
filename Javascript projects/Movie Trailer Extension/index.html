@@ -54,37 +54,12 @@
             </div>
             <!-- Searchbars -->
             <div class="search-forms">
-                <form id="searchform-anything" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-anything" name="search" placeholder="Start typing to search anything...">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form>
-    
-                <!-- <form id="searchform-movies" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-movies" name="search" placeholder="Start typing to search Movies.">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form>
-    
-                <form id="searchform-tv" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-tv" name="search" placeholder="Start typing to search TV Shows.">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form>
-    
-                <form id="searchform-people" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-people" name="search" placeholder="Start typing to search People.">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form>
-    
-                <form id="searchform-collection" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-collection" name="search" placeholder="Start typing to search Collections.">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form>
-    
-                <form id="searchform-keyword" method="get" target="dummyframe" autocomplete="off">
-                    <input autofocus class="search-bar" type="text" id="search-keyword" name="search" placeholder="Start typing to search all.">
-                    <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
-                </form> -->
-            </div>
-
+                <div id="search-forms">
+                    <form id="searchform-anything" method="get" target="dummyframe" autocomplete="off">
+                        <input autofocus class="search-bar" type="text" id="search-anything" name="search" placeholder="Start typing to search anything...">
+                        <input type="submit" style="position: absolute; left: -9999px; width: 1px; height: 1px;" tabindex="-1" />
+                    </form>
+                </div>
             <div class="search-and-scroll-div">
                 <div class="search-chooser" id="search-chooser">
                     <!-- <svg width="452" height="51" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -239,7 +214,12 @@
 </body>
 <script type="module" src="/Movie Trailer Extension/js/app.js"></script>
 <script type="text/javascript">
-   
+   document.body.style.zoom = screen.logicalXDPI / screen.deviceXDPI;
+//    var scale = 'scale(1)';
+// document.body.style.webkitTransform =  scale;    // Chrome, Opera, Safari
+//  document.body.style.msTransform =   scale;       // IE 9
+//  document.body.style.transform = scale;     // General
+//  document.body.style.zoom = 1.0
 </script>
 <!-- 
 https://www.imdb.com/title/tt7556122/

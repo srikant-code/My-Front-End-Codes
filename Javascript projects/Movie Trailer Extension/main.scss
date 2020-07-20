@@ -51,6 +51,24 @@
     color: white;
     font-family: 'Product Sans';
     vertical-align: middle;
+    text-decoration: none;
+    &::-webkit-scrollbar {
+        // display: none;
+        border-radius: 100px;
+        width:15px;
+        background: #1b1b1b;
+    }
+    // /* Track */
+    // ::-webkit-scrollbar-track {
+    // }
+    ::-webkit-scrollbar-thumb {
+        background: #ec0f0f;
+        border-radius: 100px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: rgb(179, 0, 0);
+        border-radius: 100px;
+    }
 }
 body, html{
     overflow-x: hidden !important;
@@ -66,7 +84,7 @@ iframe{
 }
 #onboarding{
     position: absolute;
-    display: none; //flex
+    display: flex; //flex
     flex-flow: column wrap;
     justify-content: center;
     align-items: center;
@@ -268,12 +286,25 @@ iframe{
 
 .home-container{
     @include dim(100vw, 100vh);
-    // display: none;
-    display: flex;
+    display: none;
+    // display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     overflow: hidden;
 
+//     &:after {
+//         content:'';
+//         position:absolute;
+//         left:0; top:0;
+//         width:100%; height:100%;
+//         display:inline-block;
+//         z-index: -1;
+//         background: rgb(236,236,236);
+//         background: -moz-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
+//         background: -webkit-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
+//         background: linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
+//         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
+//   }
     &:after {
         content:'';
         position:absolute;
@@ -281,12 +312,12 @@ iframe{
         width:100%; height:100%;
         display:inline-block;
         z-index: -1;
-        background: rgb(236,236,236);
-        background: -moz-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        background: -webkit-linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        background: linear-gradient(180deg, rgba(236,236,236,0) 36%, rgba(0,0,0,0.5185355392156863) 100%);
-        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ececec",endColorstr="#000000",GradientType=1);
-  }
+        background: rgb(0,0,0);
+        background: -moz-linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        background: -webkit-linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        background: linear-gradient(180deg, rgba(0,0,0,0.29864758403361347) 0%, rgba(0,0,0,0.7160145308123249) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#000000",GradientType=1);
+    }
 
     @media only screen and (max-aspect-ratio: 10/9){
         justify-content: flex-end;
@@ -304,9 +335,22 @@ iframe{
           
         /* Preserve aspet ratio */
         min-width: 100%;
-        min-height: 100%;
+        height: 100%;
         z-index: -100;
 
+        // img{
+        //     position: absolute; 
+        //     margin: auto; 
+        //     min-width: 100%;
+        //     height: 100%;
+        //     background-repeat: no-repeat;
+        //     background-size: cover;
+        //     background-position: center center;
+        //     transform-origin: center;
+        //     // background-attachment: fixed;
+        //     filter:brightness(0.15) opacity(1) blur(0.2px);
+        //     z-index: -100;
+        // }
         img{
             position: absolute; 
             margin: auto; 
@@ -317,7 +361,7 @@ iframe{
             background-position: center center;
             transform-origin: center;
             // background-attachment: fixed;
-            filter:brightness(0.15) opacity(1) blur(0.2px);
+            filter:brightness(0.35) opacity(1) blur(0.5px);
             z-index: -100;
         }
     }
@@ -377,7 +421,7 @@ iframe{
         // max-width: 100vw;
         width:65%;
         height: 160vh;
-        overflow: scroll;
+        overflow-y: scroll;
         justify-content: space-between;
         @include flex(row, center, center);
         @media only screen and (min-width:1249px){
@@ -394,7 +438,7 @@ iframe{
             // max-width: 65vw;
         }
         .goback-wrapper{
-            width: 80%;
+            width: 95%;
             margin-top: 80px;
             cursor: pointer;
             @include flex();
@@ -419,10 +463,13 @@ iframe{
                 }
             }
         }
-        .search-forms{
+        #search-forms{
             form{
                 margin:80px;
+                margin-top:170px;
                 zoom: 60%;
+                display: flex;
+                justify-content: center;
                 input{
                     @include heading(12rem, bold);
                     outline: none;
@@ -449,13 +496,13 @@ iframe{
                 }
             }
             .search-bar{
-                @include heading(7rem, bold);
+                @include heading(9.5rem, bold);
                 margin: 60px;
             }
         }
         .search-and-scroll-div{
             @include flex(column, center, center);
-            margin-bottom: 400px;
+            margin-bottom: 250px;
             .search-chooser{
                 @include flex(row);
                 position: relative;
@@ -576,7 +623,7 @@ iframe{
         }
         .movie-details{
             @include paragraph();
-            width:80%;
+            width:90%;
             height: 130vh;
             .movie-heading{
                 @include flex(row, space-between, flex-end);
@@ -586,7 +633,7 @@ iframe{
                         @include heading();
                         margin: 30px;
                         span.movie-year{
-                            font-size: 3rem;
+                            font-size: 2.4rem;
                             vertical-align: baseline;
                         }
                     }
@@ -623,10 +670,10 @@ iframe{
                 }
             }
             .movie-detailed-info{
-                @include flex(row, left, flex-start);
+                @include flex(row, space-between, flex-start);
                 margin-top: 50px;
                 .movie-detailed-info-left{
-                    width:50%;
+                    width:fit-content;
                     .movie-released-status{
                         margin-left: 30px;
                         .movie-released-date{
@@ -639,6 +686,7 @@ iframe{
                     }   
                     .movie-user-score{
                         @include flex(row, space-between,center);
+                        // @include dim(585px, fit-content);
                         @include dim(fit-content, fit-content);
                         @include transition();
                         background-color: black;
@@ -685,7 +733,9 @@ iframe{
                     }
                 }
                 .movie-detailed-info-right{
-                    width: 50%;
+                    width: fit-content;
+                    margin-right: 160px;
+                    margin-left: 20px;
                     >div{
                         margin: 15px;
                     }
@@ -732,19 +782,20 @@ iframe{
     .bottom-bar-wrapper{
         position: absolute;
         bottom:0;
-        left:0;
-        width: 100vw;
+        left:35%;
+        right:0;
         display: flex;
         justify-content: flex-end;
         align-items: flex-end;
         .bottom-bar{
             @include flex();
-            @include dim(100vw, fit-content);
+            height: fit-content;
+            width: 100%;
             flex-flow: column wrap;
             align-items: flex-end;
             justify-content: flex-end;
             z-index: 1;
-            zoom:67%;
+            
             
             @media only screen and (min-width:1249px){
                 justify-content: space-between;
@@ -760,7 +811,7 @@ iframe{
                 }
             }
             @media only screen and (max-aspect-ratio: 16/9){
-                max-width: 100vw;
+                // max-width: 100vw;
             }
             @media only screen and (min-aspect-ratio: 9/9){
              //   
@@ -791,6 +842,26 @@ iframe{
                         &:hover{
                             
                         }
+                    }
+                    &:hover{
+                        background-color: black;
+                        transform: scale(1.035);
+                        @include transition();
+                    }
+                }
+                .see-on-home{
+                    cursor: pointer;
+                    @include paragraph();
+                    @include outline();
+                    @include padding(14px, -10px, 14px, 12px);
+                    @include dim(270px, 60px);
+                    @include margin(20px, 40px, 20px, 0px);
+                    @include transition();
+                    svg{
+                        transform: scale(1.5) translateX(5px);
+                    }
+                    &.see-on-netflix svg:hover{
+                        fill: white !important;
                     }
                     &:hover{
                         background-color: black;
@@ -839,6 +910,7 @@ iframe{
                     span{
                         display: block;
                         color: rgb(245, 228, 0);
+                        p{display: inline;}
                     }
                 }
             }
