@@ -1,37 +1,19 @@
-## Welcome to GitHub Pages
+## Hello🤘
 
-You can use the [editor on GitHub](https://github.com/srikant-code/My-Front-End-Codes/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+This is a repo of mine in which I usually experiment js codes and then after completing I push them to a new repo. You can check out my current projects here
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Right now this repo is consisting of
+- **Neomorphic fully functional Caluclator**. [See the live deployment here](https://srikant-code.github.io/My-Front-End-Codes/Javascript%20projects/Calculator/calculator.html)  
+Here is a preview of the Calculator I built.
+![Movie New tab Extension Image1](https://raw.githubusercontent.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects/Calculator/deployment.png)  
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+- **Movie New tab Extension** This one is in development. Its having bugs. You can contribute to it. I would be greateful to accept a pull request.
+Here is a preview of the application I built. But you can [see the live deployment here](https://movie-new-tab-extension.vercel.app)  
 
-```markdown
-Syntax highlighted code block
+![Movie New tab Extension Image1](https://raw.githubusercontent.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects/Movie%20Trailer%20Extension/img/deployment2.png)  
+![Movie New tab Extension Image1](https://raw.githubusercontent.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects/Movie%20Trailer%20Extension/img/deployment1.png)  
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/srikant-code/My-Front-End-Codes/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Excited??
+Go to the **Javascript projects** folder above for the code or click [here](https://github.com/srikant-code/My-Front-End-Codes/tree/master/Javascript%20projects)
+If you like my projects do give it a Star⭐⭐⭐ please🥺🥺 and also fork it if you want to send a pull request. Doing so will motivate me to contribute more to the project.

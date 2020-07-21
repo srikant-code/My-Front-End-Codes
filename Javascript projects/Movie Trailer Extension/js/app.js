@@ -20,7 +20,7 @@ let goback = () =>{
     document.getElementById("goback-to-search").addEventListener("click", function(){
         DOMelements.onboardingDisplay.style.display = "flex"
         DOMelements.movieDisplay.style.display= "none"
-        myvar.clearInterval()
+        clearInterval(myvar)
     })
 }
 
@@ -41,13 +41,9 @@ SearchChooser()
 
 const afterRenderMovieCalls = (moviedetails) => {
     SearchChooser()
-    console.log("clikedawc")
     goback()
-    console.log("clikvaed")
     searchbarlencalc()
-    console.log("clikdawed")
     submitformlistener()
-    console.log("clikewdad")
     myvar = setInterval(function(){renderTimeDetails(moviedetails.runtime)}, 1000)
 }
 
@@ -56,11 +52,16 @@ const moviesAddEventListeners = () =>{
     const moviecards = Array.from(DOMelements.movieCards)
     moviecards.forEach(element => {
         element.addEventListener("click", async ()=>{
-            const moviedetails = await getMovie(element.closest(".movie-card-wrapper").id)
-            DOMelements.onboardingDisplay.style.display = "none"
-            DOMelements.movieDisplay.style.display= "flex"
-            rendermovie(moviedetails)
-            afterRenderMovieCalls(moviedetails)
+            try{
+                const moviedetails = await getMovie(element.closest(".movie-card-wrapper").id)
+                DOMelements.onboardingDisplay.style.display = "none"
+                DOMelements.movieDisplay.style.display= "flex"
+                rendermovie(moviedetails)
+                afterRenderMovieCalls(moviedetails)
+            }catch (err) {
+                console.log(err);
+                alert('Network error. Try it again after sometime');
+            }
         })
     });
 }
@@ -68,11 +69,16 @@ const moviesAddEventListeners = () =>{
 submitformlistener = () =>{
     DOMelements.searchForm.onsubmit = async function searchresults(){
         //get serach results
-        const data = await getSearchResults()
-        //render search results with pagination
-        // renderSearchCleaning()
-        moviesRender(data)
-        moviesAddEventListeners()
+        try{
+            const data = await getSearchResults()
+            //render search results with pagination
+            // renderSearchCleaning()
+            moviesRender(data)
+            moviesAddEventListeners()
+        }catch (err) {
+            console.log(err);
+            alert('No movies found or Network error. Try it again!');
+        }
         // clearInput()
     }
 }
@@ -119,16 +125,6 @@ async function getMovie(id){
     // http://api.themoviedb.org/3/search/movie?query=relic&api_key=d945889bb9934bf3d4195cc152d6f401
     // https://api.themoviedb.org/3/search/movie?api_key={api_key}&query=Jack+Reacher
 
-// take in the search term and show results
-// render moviw details
-//   search for a movie
-//   render its background images
-//   render rating  
-//   render watchtime
-//   render votes
-//   render imdb, netflix links
-//   render time details
-
 const renderAll = () => {
     renderTimeDetails()
     // displayTime()
@@ -138,3 +134,21 @@ const controller = () => {
     renderAll()
 }
 controller()
+
+
+//make pagination in the search results
+//make internal search bar work
+//netflix issue
+//embed video/trailer
+//embed similar movies
+//embed trending movies
+//add to favorite button
+//github icon fix
+//release date alignment later
+//if response is empty display a popup
+
+// Solved
+//chaneg the colour of user score
+//change adult false to something else
+//Change the language yes to en error
+//solve multipple expected time. remove interval

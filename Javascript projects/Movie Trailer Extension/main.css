@@ -11,13 +11,12 @@
 }
 
 *::-webkit-scrollbar {
-  border-radius: 100px;
   width: 15px;
   background: #1b1b1b;
 }
 
 * ::-webkit-scrollbar-thumb {
-  background: #ec0f0f;
+  background: #da0707;
   border-radius: 100px;
 }
 
@@ -386,8 +385,14 @@ iframe {
   left: 0;
   /* Preserve aspet ratio */
   min-width: 100%;
-  height: 100%;
+  height: 300%;
   z-index: -100;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  background-attachment: fixed;
 }
 
 .home-container .home-img-wrapper img {
@@ -397,7 +402,7 @@ iframe {
   height: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center center;
+  background-position: center;
   -webkit-transform-origin: center;
           transform-origin: center;
   -webkit-filter: brightness(0.35) opacity(1) blur(0.5px);

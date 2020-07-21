@@ -12,10 +12,10 @@ export const moviesRender = (data) =>{
                 <div class="movie-card-details">
                     <div class="movie-name">${results[i].title}</div>
                     <div class="movie-year">${results[i].release_date.split("-")[0]}</div>
-                    <div class="movie-language">Language <span>${results[i].original_language?"Yes":"No"}</span></div>
+                    <div class="movie-language">Language <span>${results[i].original_language?results[i].original_language:"en"}</span></div>
                     <div class="movie-rating">TMDB Rating <span>${Math.round(results[i].vote_average*0.5 * 10) / 10 }/5</span></div>
                 </div>
-                <div class="movie-score">Score <span>${results[i].vote_average*10}%</span></div>
+                <div class="movie-score">Score <span style="${results[i].vote_average*10>=70?"background: #07da19":(results[i].vote_average*10>=40?"background: #dad707; color:#000":"background: #da0707")}">${results[i].vote_average*10}%</span></div>
             </div>
         </div>`;
         cardshtml = cardshtml + onecard
@@ -70,7 +70,7 @@ const changeimage = (results, i) =>{
         srcset="https://image.tmdb.org/t/p/w220_and_h330_face/${results[i].poster_path} 1x, https://image.tmdb.org/t/p/w440_and_h660_face/${results[i].poster_path} 2x">`
     }
     else{
-        return `<img src="/Movie Trailer Extension/img/fallback poster.png" alt="${results[i].original_title}">`
+        return `<img src="/img/fallback poster.png" alt="${results[i].original_title}">`
     }
 }
 const changeposter = (results) =>{
@@ -81,7 +81,7 @@ const changeposter = (results) =>{
         srcset=" https://image.tmdb.org/t/p/w440_and_h660_face/${results.poster_path} 4x">`
     }
     else{
-        return `<img src="/Movie Trailer Extension/img/fallback poster.png" alt="${results.original_title}">`
+        return `<img src="/img/fallback poster.png" alt="${results.original_title}">`
     }
 }
 const changebackdrop = (results) =>{
@@ -92,9 +92,10 @@ const changebackdrop = (results) =>{
         srcset="https://image.tmdb.org/t/p/w440_and_h660_face/${results.backdrop_path} 4x">`
     }
     else{
-        return `<img src="/Movie Trailer Extension/img/fallback poster.png" alt="${results.original_title}">`
+        return `<img src="/img/fallback poster.png" alt="${results.original_title}">`
     }
 }
+
 
 export const rendermovie = (movie) => {
     DOMelements.movieDisplay.innerHTML = ""
@@ -221,12 +222,12 @@ export const rendermovie = (movie) => {
                     <div class="movie-released-status">${movie.status} <span class="movie-released-date">${movie.release_date.split("-")[2]} ${monthconverter(movie.release_date.split("-")[1])} ${movie.release_date.split("-")[0]}</span></div>
                     <div class="user-score-text">User score</div>
                     <a href="https://www.themoviedb.org/movie/${movie.id}" class="movie-user-score">
-                        <div class="movie-percentage">
+                        <div class="movie-percentage" style="${movie.vote_average*10>=70?"background: #07da19":(movie.vote_average*10>=40?"background: #dad707; color:#000":"background: #da0707")}">
                             ${movie.vote_average*10}%
                         </div>
                         <div class="movie-reviews-count">based on ${movie.vote_count} votes on
                             <span>
-                                <img src="/Movie Trailer Extension/img/tmdb.png" alt="TMDB Logo">
+                                <img src="/img/tmdb.png" alt="TMDB Logo">
                             </span>
                         </div>
                     </a>
@@ -239,7 +240,7 @@ export const rendermovie = (movie) => {
                     <div class="movie-watchtime">${Math.floor(movie.runtime/60)} hours and ${movie.runtime%60} minutes</div>
                     <div class="movie-genre">${arrayIterator(movie.genres)}</div>
                     <div class="movie-language">${arrayIterator(movie.spoken_languages)}</div>
-                    <div class="movie-adult">Adult <span class="movie-adult-status">${movie.adult}</span></div>
+                    <div class="movie-adult">Adult <span class="movie-adult-status">${movie.adult?"Yes":"No"}</span></div>
                     <div class="movie-posters">Posters</div>
                     <div class="movie-posters-list">
                         ${changeposter(movie)}
