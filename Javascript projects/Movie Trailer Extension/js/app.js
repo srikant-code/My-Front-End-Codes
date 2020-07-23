@@ -138,7 +138,6 @@ controller()
 
 //make pagination in the search results
 //make internal search bar work
-//netflix issue
 //embed video/trailer
 //embed similar movies
 //embed trending movies
@@ -148,6 +147,7 @@ controller()
 //if response is empty display a popup
 
 // Solved
+//netflix issue
 //chaneg the colour of user score
 //change adult false to something else
 //Change the language yes to en error
