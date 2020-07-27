@@ -28,6 +28,81 @@ div {
   margin-bottom: 10px;
 }
 
+.pipe-animation {
+  background: #963ada;
+  width: 8px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: -154px;
+  margin-left: -6px;
+  position: absolute;
+  border-radius: 50px;
+}
+
+.pipe-animation:after {
+  content: '';
+  width: 10px;
+  background: blue;
+  -webkit-animation: 2.5s dripping ease-in-out infinite;
+          animation: 2.5s dripping ease-in-out infinite;
+}
+
+@-webkit-keyframes dripping {
+  0% {
+    height: 0px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  50% {
+    height: 50px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  55% {
+    height: 50px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  75% {
+    height: 0px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    height: 0px;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes dripping {
+  0% {
+    height: 0px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  50% {
+    height: 50px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  55% {
+    height: 50px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  75% {
+    height: 0px;
+    -webkit-transform: translateY(50px);
+            transform: translateY(50px);
+  }
+  100% {
+    height: 0px;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
 .Conveyer-animation {
   -webkit-transform: scale(0.6);
           transform: scale(0.6);
@@ -152,8 +227,15 @@ div {
 .Conveyer-animation .chaoswrapper {
   -webkit-transform: translateY(-336px) !important;
           transform: translateY(-336px) !important;
-  -webkit-clip-path: polygon(100% 0, 100% 100%, 48% 100%, 48% 0) !important;
-          clip-path: polygon(100% 0, 100% 100%, 48% 100%, 48% 0) !important;
+  -webkit-clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%);
+          clip-path: polygon(54% 0, 100% 0, 100% 100%, 46% 100%);
+}
+
+.Conveyer-animation .emptytubes {
+  -webkit-transform: translateY(-460px) !important;
+          transform: translateY(-460px) !important;
+  -webkit-clip-path: polygon(0 0, 63% 0, 42% 100%, 0 100%) !important;
+          clip-path: polygon(0 0, 63% 0, 42% 100%, 0 100%) !important;
 }
 
 .Conveyer-animation .tubeswrapper {
@@ -162,8 +244,8 @@ div {
   width: 100vw;
   overflow: hidden;
   height: 130px;
-  -webkit-clip-path: polygon(100% 0, 100% 65%, 96% 100%, 0 100%, 0 0);
-          clip-path: polygon(100% 0, 100% 65%, 96% 100%, 0 100%, 0 0);
+  -webkit-clip-path: polygon(55% 0, 100% 0, 100% 100%, 43% 100%);
+          clip-path: polygon(55% 0, 100% 0, 100% 100%, 43% 100%);
 }
 
 .Conveyer-animation .tubeswrapper:before {
