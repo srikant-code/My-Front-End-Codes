@@ -2,7 +2,7 @@
 
 This is a repo of mine in which I usually experiment js codes and then after completing I push them to a new repo. You can check out my current projects here  
 
-**Right now this repo is consisting of 2 JS projects and 2 CSS Projects**  
+**Right now this repo is consisting of 2 JS projects and 2 CSS Projects.**  
 ## JS projects  
 
 - **Neomorphic fully functional Caluclator**. [See the live deployment here](https://srikant-code.github.io/My-Front-End-Codes/Javascript%20projects/Calculator/calculator.html)  
@@ -10,8 +10,8 @@ Here is a preview of the Calculator I built.
 ![Neomorphic calculator screenshot](https://raw.githubusercontent.com/srikant-code/My-Front-End-Codes/master/Javascript%20projects/Calculator/deployment.png)  
 
 
-- **Movie New tab Extension** This one is in development. Its having bugs. You can contribute to it. I would be greateful to accept a pull request.
-Here is a preview of the application I built. But you can [see the live deployment here](https://movie-new-tab-extension.vercel.app)  
+- **Movie New tab Extension** This one is in development stage and its having bugs. You can contribute to it. I would be greateful to accept a pull request.
+Here is a preview of the application I built, but you can [see the live deployment here](https://movie-new-tab-extension.vercel.app)  
 
 ![Movie New tab Extension screenshot1](https://raw.githubusercontent.com/srikant-code/My-Front-End-Codes/master/Javascript%20projects/Movie%20Trailer%20Extension/img/deployment2.png)   
 
