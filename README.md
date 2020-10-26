@@ -36,4 +36,4 @@ Go to the
 
 - **CSS projects** folder above for the code **or click [here](https://github.com/srikant-code/My-Front-End-Codes/tree/master/CSS%20projects)  
 
-If you like my projects do give it a **Star⭐⭐⭐ please🥺🥺, and also fork it if you want to send a pull request. Doing so will motivate me to contribute more to the project.**
+If you like my projects do give it a **Star⭐⭐⭐ please🥺🥺 and also fork it if you want to send a Pull request. Doing so will motivate me to contribute more to the project.**
